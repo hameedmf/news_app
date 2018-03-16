@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title>Friday fever</title>
+  </head>
+  <body>
+    <h1>Friday fever</h1>
+    <ul ng-controller="appController as appCtrl">
+      <li ng-repeat="topic in appCtrl.news">{{ topic }}</li>
+    </ul>
+    <script type="text/javascript" src="dist/bundle.js">
+    </script>
+  </body>
+</html>
