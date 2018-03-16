@@ -7,8 +7,14 @@ var _angular2 = _interopRequireDefault(_angular);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_angular2.default.module('app', []).controller('appController', function () {
-  this.news = ["Trump", "Hillary"];
+_angular2.default.module('app', []).controller('appController', function ($http) {
+  var _this = this;
+
+  //this.news=["Trump", "Hillary"];
+  $http.get('/news').then(function (response) {
+    console.log(response.data);
+    _this.news = response.data;
+  });
 });
 
 },{"angular":3}],2:[function(require,module,exports){
