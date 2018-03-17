@@ -21,5 +21,5 @@ gulp.task("transpile", () => {
 
 
 gulp.task("watch", ["transpile"], () => {
-  gulp.watch("src/**/*", ["transpile"]);
+  gulp.watch("src/js/app.js", ["transpile"]);
 });
