@@ -8,11 +8,12 @@
 
 </head>
 
-<body>
+<body ng-controller="appController as appCtrl">
   <h1>News app</h1>
-  <ul ng-controller="appController as appCtrl">
-    <li ng-repeat="article in appCtrl.news.articles" ng-cloak>{{ article.title }}</li>
-  </ul>
+  <input type="text" value="" ng-model="appCtrl.searchText" placeholder="search text here">
+  <button type="button" class="btn btn-info" ng-click="appCtrl.searchAndDisplay()" name="button">Submit</button>
+  <div id="newsid" class="container-fluild">
+  </div>
   <script type="text/javascript" src="dist/bundle.js">
   </script>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
