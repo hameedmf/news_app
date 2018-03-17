@@ -6,7 +6,7 @@ gulp.task("default", ["transpile"]);
 
 gulp.task("transpile", () => {
 
-  return browserify("src/app.js")
+  return browserify("src/js/app.js")
     .transform("babelify")
     .bundle()
     .on("error", function(error){
@@ -14,7 +14,7 @@ gulp.task("transpile", () => {
       this.emit("end");
     })
     .pipe(source("bundle.js"))
-    .pipe(gulp.dest("dist"));
+    .pipe(gulp.dest("src/dist"));
 
 });
 
@@ -23,4 +23,3 @@ gulp.task("transpile", () => {
 gulp.task("watch", ["transpile"], () => {
   gulp.watch("src/**/*", ["transpile"]);
 });
-
