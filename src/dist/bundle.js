@@ -44751,48 +44751,12 @@ _angular2.default.module('app', []).controller('appController', function ($http)
   });
 
   this.searchAndDisplay = function () {
-    (0, _jquery2.default)(".button").attr("disabled");
-    var searchFor = this.searchText;
-    console.log(searchFor);
-    //news2=[];
-    var mainDiv = (0, _jquery2.default)("#newsid");
-    _angular2.default.forEach(this.news.articles, function (article, key) {
-      if (article.title.includes(searchFor)) {
-        var row = (0, _jquery2.default)('<div />', {
-          class: "row"
-        });
-        var imageDiv = (0, _jquery2.default)('<div />', {
-          class: "col-md-2"
-        });
-        var img = (0, _jquery2.default)('<img />', {
-          src: article.urlToImage
-        }).appendTo(imageDiv);
+    var _this2 = this;
 
-        var detailsDiv = (0, _jquery2.default)('<div />', {
-          class: "col-md-10"
-        });
-        var title = (0, _jquery2.default)('<p />', {
-          text: article.title
-        });
-        var description = (0, _jquery2.default)('<p />', {
-          text: article.description
-        });
-
-        title.appendTo(detailsDiv);
-        description.appendTo(detailsDiv);
-
-        //let author =
-
-        //let date
-
-        //let source
-
-        imageDiv.appendTo(row);
-        detailsDiv.appendTo(row);
-        row.appendTo(mainDiv);
-      }
+    $http.get('/python').then(function (response) {
+      console.log(response.data);
+      _this2.pythonResponse = response.data;
     });
-    (0, _jquery2.default)(".button").attr("enabled");
   };
 });
 
